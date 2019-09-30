@@ -7,10 +7,10 @@ public class WhileLoop
 	{
 		//initialization
 		
-		int a =10;
+		int a =1;
 		
 		//condition
-		while(a>100)
+		while(a<10)
 		{
 			System.out.println(a);
 			
