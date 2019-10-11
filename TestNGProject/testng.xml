@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- XML Version -->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> 
+<suite name="Suite"> <!-- Tag Name, Can be changed -->
+  <test thread-count="5" name="Test"> <!-- Test Case Name, Can be changed -->
+    <classes>
+      <class name="BasicAnnotations.TestingClass2"/> <!-- All the classes, Package with Class name -->
+      <class name="BasicAnnotations.TestNGClass1"/>
+      <class name="BasicAnnotations.TestingClass3"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+  <test thread-count="5" name="Regression"> 
+    <classes>
+      <class name="BasicAnnotations.TestingClass2"/> 
+      <class name="BasicAnnotations.TestNGClass1"/>
+      <class name="BasicAnnotations.TestingClass3"/>
+    </classes>
+  </test> 
+  
+  
+  
+</suite> <!-- Suite -->
