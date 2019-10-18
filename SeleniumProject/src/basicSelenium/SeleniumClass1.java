@@ -9,9 +9,12 @@ public class SeleniumClass1
 	public void login()
 	{
 		System.out.println("Launch Chrome Browser");
-		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\SeleniumAutomation\\Drivers\\chromedriver.exe");
 		ChromeDriver dr = new ChromeDriver();
+		dr.manage().window().maximize();
+		
 		dr.get("https://www.google.com");
+		
 		
 	}
 
