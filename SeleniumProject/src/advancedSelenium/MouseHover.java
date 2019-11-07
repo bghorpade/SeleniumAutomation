@@ -1,11 +1,13 @@
 package advancedSelenium;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -22,6 +24,8 @@ public class MouseHover {
 			dr.manage().window().maximize();
 			
 			dr.get("https://www.flipkart.com");
+			
+			Actions act = new Actions(dr);
 			
 			//implicit wait
 			dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -41,6 +45,27 @@ public class MouseHover {
 			WebElement Shirts = dr.findElement(By.xpath("//a[text()='Shirts']"));
 			Shirts.click();
 			
+			
+			WebElement drag = dr.findElement(By.xpath("//div[@class='_3G9WVX oVjMho']/div"));
+			
+			MouseHover.waiting();
+			act.dragAndDropBy(drag, 70, 0).build().perform();
+			
+			
+			String parent =dr.getWindowHandle();
+			
+			MouseHover.waiting();
+			dr.findElement(By.xpath("//img[@class='_3togXc']")).click();
+			
+			Set<String> wins = dr.getWindowHandles();
+			for(String w:wins)
+			{
+				if(!w.equals(parent))
+				dr.switchTo().window(w);
+			}
+			
+			dr.findElement(By.xpath("//a[text()='M']")).click();
+			
 			MouseHover.waiting();
 			dr.quit();
 	
@@ -50,7 +75,7 @@ public class MouseHover {
 		
 		public static void waiting() throws InterruptedException
 		{
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		}
 
 }
